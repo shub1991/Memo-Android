@@ -71,9 +71,7 @@ public class MemoList extends AppCompatActivity {
         name.setText(getIntent().getStringExtra("Name"));
         email.setText(getIntent().getStringExtra("Phone_Number"));
         phNo.setText(getIntent().getStringExtra("Email"));
-        final List<String> str= new ArrayList<String>();
-        SQLiteDatabase db = mDbHelper.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from Memos",null);
+
         add.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -84,15 +82,28 @@ public class MemoList extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        SQLiteDatabase db = mDbHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from Memos",null);
+        ArrayList<String> maintitle = new ArrayList<>();
+        ArrayList<String> subtitle = new ArrayList<>();
+        ArrayList<Integer> ids = new ArrayList<>();
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {
                 String name = cursor.getString(cursor.getColumnIndex("title"));
+                String name2 = cursor.getString(cursor.getColumnIndex("desc"));
+                Integer name3 = cursor.getInt(cursor.getColumnIndex("_id"));
 
-                str.add(name);
+                maintitle.add(name);
+                subtitle.add(name2);
+                ids.add(name3);
                 cursor.moveToNext();
             }
         }
 
+        adapter=new MyListAdapter(this, maintitle, subtitle, ids);
+        list=(ListView)findViewById(R.id.list_view);
+        list.setAdapter(adapter);
 
     }
 }

@@ -29,6 +29,7 @@ public class MemoList extends AppCompatActivity {
     Button add;
     FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(this);
     ListView list;
+    MyListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,53 +57,33 @@ public class MemoList extends AppCompatActivity {
             }
         }
 
-        MyListAdapter adapter=new MyListAdapter(this, maintitle, subtitle, ids);
+        adapter=new MyListAdapter(this, maintitle, subtitle, ids);
         list=(ListView)findViewById(R.id.list_view);
         list.setAdapter(adapter);
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-
-                Toast.makeText(getApplicationContext(),"Place Your First Option Code",Toast.LENGTH_SHORT).show();
-                if(position == 0) {
-                    //code specific to first list item
-                    Toast.makeText(getApplicationContext(),"Place Your First Option Code",Toast.LENGTH_SHORT).show();
-                }
-
-                else if(position == 1) {
-                    //code specific to 2nd list item
-                    Toast.makeText(getApplicationContext(),"Place Your Second Option Code",Toast.LENGTH_SHORT).show();
-                }
-
-                else if(position == 2) {
-
-                    Toast.makeText(getApplicationContext(),"Place Your Third Option Code",Toast.LENGTH_SHORT).show();
-                }
-                else if(position == 3) {
-
-                    Toast.makeText(getApplicationContext(),"Place Your Forth Option Code",Toast.LENGTH_SHORT).show();
-                }
-                else if(position == 4) {
-
-                    Toast.makeText(getApplicationContext(),"Place Your Fifth Option Code",Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
 
     }
     @Override
     protected void onStart() {
 
         super.onStart();
+        adapter.notifyDataSetChanged();
+
         name.setText(getIntent().getStringExtra("Name"));
         email.setText(getIntent().getStringExtra("Phone_Number"));
         phNo.setText(getIntent().getStringExtra("Email"));
         final List<String> str= new ArrayList<String>();
         SQLiteDatabase db = mDbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from Memos",null);
+        add.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+              ;
+                Intent intent = new Intent(MemoList.this, MemoEdit.class);
+
+                startActivity(intent);
+            }
+        });
         if (cursor.moveToFirst()) {
             while (!cursor.isAfterLast()) {
                 String name = cursor.getString(cursor.getColumnIndex("title"));

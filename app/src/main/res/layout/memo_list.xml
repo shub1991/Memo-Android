@@ -1,44 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:orientation="vertical"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayourt">
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@mipmap/ic_launcher" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/memo_name"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_margin="40px"
+                android:layout_alignRight="@+id/imageView4"
+
+                />
+            <TextView
+                android:id="@+id/memo_phNo"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/memo_name"
+                android:layout_margin="40px"
+                />
+            <TextView
+                android:id="@+id/memo_email"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/memo_phNo"
+                android:layout_margin="40px"
+                />
+
+        </LinearLayout>
 
 
-        <TextView
-            android:id="@+id/memo_name"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_margin="40px"
-             />
-        <TextView
-            android:id="@+id/memo_phNo"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_margin="40px"
-             />
-        <TextView
-            android:id="@+id/memo_email"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_margin="40px"
-            />
+    </LinearLayout>
+
         <Button
             android:id="@+id/add"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="Add Memo"
             android:layout_gravity="center"
+            android:layout_below="@+id/linearLayourt"
             android:textAlignment="center"/>
         <ListView
             android:id="@+id/list_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:layout_below="@+id/add"
+            />
+</RelativeLayout>
 
-</android.support.constraint.ConstraintLayout>
+
+

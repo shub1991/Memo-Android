@@ -43,7 +43,7 @@ public class MyListAdapter extends ArrayAdapter<String> {
         LayoutInflater inflater=context.getLayoutInflater();
         View rowView=inflater.inflate(R.layout.list_item, null,true);
 
-        TextView titleText = (TextView) rowView.findViewById(R.id.title);
+        final TextView titleText = (TextView) rowView.findViewById(R.id.title);
         TextView subtitleText = (TextView) rowView.findViewById(R.id.subtitle);
         Button deleteBtn = (Button) rowView.findViewById(R.id.deleteBtn);
         titleText.setText(maintitle.get(position));
@@ -52,8 +52,9 @@ public class MyListAdapter extends ArrayAdapter<String> {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, position+"-->"+ids.get(position),Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Item Deleted refresh the page",Toast.LENGTH_LONG).show();
                 db.delete("Memos","_id" + "=" + ids.get(position), null);
+                context.recreate();
             }
         });
         return rowView;

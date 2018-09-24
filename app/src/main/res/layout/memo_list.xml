@@ -8,24 +8,26 @@
         android:layout_width="fill_parent"
         android:orientation="vertical"
         android:layout_height="fill_parent">
-    <TextView
-        android:id="@+id/memo_name"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_margin="40px"
-         />
-    <TextView
-        android:id="@+id/memo_phNo"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_margin="40px"
-         />
-    <TextView
-        android:id="@+id/memo_email"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_margin="40px"
-        />
+
+
+        <TextView
+            android:id="@+id/memo_name"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="40px"
+             />
+        <TextView
+            android:id="@+id/memo_phNo"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="40px"
+             />
+        <TextView
+            android:id="@+id/memo_email"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="40px"
+            />
         <Button
             android:id="@+id/add"
             android:layout_height="wrap_content"

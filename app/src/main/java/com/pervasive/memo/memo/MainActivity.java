@@ -1,6 +1,7 @@
 package com.pervasive.memo.memo;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         phNo = (EditText) findViewById(R.id.phNo);
         email = (EditText) findViewById(R.id.email);
         submit = (Button) findViewById(R.id.submit);
+
         submit.setOnClickListener(new View.OnClickListener() {
 
             @Override

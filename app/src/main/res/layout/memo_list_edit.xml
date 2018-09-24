@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_height="fill_parent">
+
+        <!--Put form controls here-->
+        <EditText
+            android:id="@+id/title"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:hint="Tittle"
+            android:layout_margin="80px"/>
+        <EditText
+            android:id="@+id/desc"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:inputType="text"
+            android:hint="Description"
+            android:layout_margin="80px"/>
+
+        <Button
+            android:id="@+id/save"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="save"
+            android:layout_margin="80px"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

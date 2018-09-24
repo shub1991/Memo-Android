@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this, "Hello" , Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(MainActivity.this, MemoList.class);
                 intent.putExtra("Name", name.getText().toString());
                 intent.putExtra("Phone_Number", phNo.getText().toString());

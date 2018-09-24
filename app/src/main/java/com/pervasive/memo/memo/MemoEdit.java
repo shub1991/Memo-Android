@@ -47,7 +47,7 @@ public class MemoEdit extends AppCompatActivity {
                 }catch (Exception ex){
                     Toast.makeText(MemoEdit.this, ex.getMessage().toString(),Toast.LENGTH_SHORT).show();
                 }
-                Toast.makeText(MemoEdit.this, newRowId+"",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MemoEdit.this, "Item Added",Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

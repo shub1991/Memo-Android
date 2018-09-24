@@ -52,7 +52,7 @@ public class MyListAdapter extends ArrayAdapter<String> {
         deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Item Deleted refresh the page",Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Item Deleted",Toast.LENGTH_LONG).show();
                 db.delete("Memos","_id" + "=" + ids.get(position), null);
                 context.recreate();
             }
